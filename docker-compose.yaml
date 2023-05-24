@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  api-frontend:
+    build:
+      context: ./api-frontend/
+      dockerfile: Dockerfile
+    ports:
+      - "4000:8000"
+    networks:
+      - api
+
+  api-backend:
+    build:
+      context: ./api-backend/
+      dockerfile: Dockerfile
+    ports:
+      - "5000:8001"
+    networks:
+      - api
+
+networks:
+    api:
+      driver: bridge 
